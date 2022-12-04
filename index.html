@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS2</title>
+    <style>
+        .tab{
+            display: none;
+            margin: 10px 10px;
+            border-collapse: collapse;
+            box-shadow: 1px 1px 3px;
+            font-weight: 300;
+            font-family: cursive;
+        }
+        td{
+            border: 1px solid black;
+            padding: 20px 25px;
+        }
+        .btn{
+            display: block;
+            border-radius: 5px;
+            border: 1px solid black;
+            margin: 20px 10px;
+            padding: 10px;
+            font-size: 15px;
+            outline: none;
+            cursor: pointer;
+            box-shadow: 1px 1px 3px;
+        }
+        .btn:hover{
+            transform: scale(1.05);
+        }
+        .btn:active{
+            transform: scale(1);
+        }
+    </style>
+    
+</head>
+<body>
+    <button class="btn" onclick="Func()">Click me to see the table</button>
+    <table class="tab"></table>
+    <script>
+        const table = document.querySelector(".tab");
+        const btn = document.querySelector(".btn");
+        const names = ["Anakin","Obi-Wan","Luke","Leia"];
+        const Func = ()=>{
+            for(let i = 0;i<names.length;i++){
+                table.innerHTML += `<tr>
+                    <td>${i}</td>
+                    <td>${names[i]}</td>
+                </tr>`;
+            }
+            btn.setAttribute("onclick", "func()");
+            table.style.display = "inline-block";
+        }
+        const func = ()=>{
+            if(table.style.display === "none"){
+                table.style.display = "inline-block";
+                btn.innerHTML = "Click me to hide the table";
+            }
+            else{
+                table.style.display = "none";
+                btn.innerHTML = "Click me to see the table";
+
+            }
+        }
+    </script>
+</body>
+</html>
